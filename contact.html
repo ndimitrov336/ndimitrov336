@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="bg" >
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promosale.bg</title>
+    <link rel="stylesheet" href="styles/style.css" />
+    <!-- Unicons CSS -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <script src="script.js" defer></script>
+   <link rel="icon" href="images/logo5.png" type="image/x-icon">
+    <!-- Стилизация за бутона - connect2 -->
+   <style>
+   .btn {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #289bb8;
+  font-size: 16px;
+  text-decoration: none;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 15px;
+  letter-spacing: 2px;
+}
+.btn:hover {
+  background: #289bb8;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #289bb8,
+              0 0 25px #289bb8,
+              0 0 50px #289bb8,
+              0 0 100px #289bb8;
+}
+
+.btn span {
+  position: absolute;
+  display: block;
+}
+
+.btn span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #289bb8);
+  animation: btn-anim1 1s linear infinite;
+}
+
+@keyframes btn-anim1 {
+  0% {
+    left: -100%;
+  }
+  50%,100% {
+    left: 100%;
+  }
+}
+
+.btn span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #289bb8);
+  animation: btn-anim2 1s linear infinite;
+  animation-delay: .25s
+}
+
+@keyframes btn-anim2 {
+  0% {
+    top: -100%;
+  }
+  50%,100% {
+    top: 100%;
+  }
+}
+
+.btn span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #289bb8);
+  animation: btn-anim3 1s linear infinite;
+  animation-delay: .5s
+}
+
+@keyframes btn-anim3 {
+  0% {
+    right: -100%;
+  }
+  50%,100% {
+    right: 100%;
+  }
+}
+
+.btn span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #289bb8);
+  animation: btn-anim4 1s linear infinite;
+  animation-delay: .75s
+}
+
+@keyframes btn-anim4 {
+  0% {
+    bottom: -100%;
+  }
+  50%,100% {
+    bottom: 100%;
+  }
+}
+</style>
+  </head>
+  <body>
+  <header>
+    <nav class="nav">
+      <i class="uil uil-bars navOpenBtn"></i>
+      <a href="index.html" class="logo"><img src="images/logo3.png"></a>
+      <ul class="nav-links">
+        <i class="uil uil-times navCloseBtn"></i>
+        <li><a href="index.html">Начало</a></li>
+        <li><a href="car.html">Автомобили</a></li>
+        <li><a href="chasti.html">Авточасти</a></li>
+        <li style="white-space:nowrap"><a href="about.html">За нас</a></li>
+		<li><a href="cart.html"><i class="fa fa-shopping-basket" style="font-size:20px;color:white;"></i></a></li>
+        <li><a href="contact.html">Контакти</a></li>
+      </ul>
+      <i class="uil uil-search search-icon" id="searchIcon"></i>
+      <div class="search-box">
+        <i class="uil uil-search search-icon"></i>
+        <input type="text" placeholder="Търсете тук..." />
+      </div>
+    </nav>
+	
+	
+	<script>
+	const nav = document.querySelector(".nav"),
+  searchIcon = document.querySelector("#searchIcon"),
+  navOpenBtn = document.querySelector(".navOpenBtn"),
+  navCloseBtn = document.querySelector(".navCloseBtn");
+searchIcon.addEventListener("click", () => {
+  nav.classList.toggle("openSearch");
+  nav.classList.remove("openNav");
+  if (nav.classList.contains("openSearch")) {
+    return searchIcon.classList.replace("uil-search", "uil-times");
+  }
+  searchIcon.classList.replace("uil-times", "uil-search");
+});
+navOpenBtn.addEventListener("click", () => {
+  nav.classList.add("openNav");
+  nav.classList.remove("openSearch");
+  searchIcon.classList.replace("uil-times", "uil-search");
+});
+navCloseBtn.addEventListener("click", () => {
+  nav.classList.remove("openNav");
+});
+	</script>
+	</header>
+	
+	<button id="toTop"></button>
+   <script>
+	let toTop = document.getElementById('toTop');
+    toTop.style.display = 'none';
+    window.addEventListener('scroll', () => {
+    if(this.scrollY > 500){
+        toTop.style.display = 'block';
+    }else{
+        toTop.style.display = 'none';
+    }
+    })
+    toTop.onclick = function(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+	</script>
+	
+	<br><br><br>
+
+<div class="contact-container" style="margin-top:3em;">
+	  <div class="form-container">
+	   <h3>Въведете вашето запитване:</h3>
+	   <form action="connect.php" method="post" class="contact-form">
+	   
+	   <input type="name" name="name" placeholder="Име" required>
+	   <input type="email" name="email"  id="" placeholder="E-mail" required>
+	   <input type="mobile" name="mobile" placeholder="Телефон" required>
+	  
+	
+	   <textarea name="message" id="" cols="30" rows="10" placeholder="Съобщение" required></textarea>
+	   <input type="submit" value="изпрати" class="send-button"><input type="reset" value="изчисти" class="send-button1">
+	  
+	  <a class="btn" href="connect2.php">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Виж книгата с гости
+        </a>
+	   
+	   </form>
+	  </div>
+	  
+	  <div class="map" style="width:90%;margin-top:3.5em;margin-bottom:1.5em;margin-left:1em;margin-right:2em;">
+	  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11728.864282119474!2d23.3292563!3d42.699145449999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa85700ef29a49%3A0x47f9d7acf2212418!2z0KHQvtGE0LjRjyDRhtC10L3RgtGK0YAsINGD0LsuIOKAntCT0LXQvtGA0LPQuCDQoS4g0KDQsNC60L7QstGB0LrQuOKAnCAxMDcsIDEwMDAg0KHQvtGE0LjRjw!5e0!3m2!1sbg!2sbg!4v1706631950759!5m2!1sbg!2sbg"  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+	  </div>
+	 
+	 
+	 </div>
+
+	<br>
+	
+	<footer class="footer-distributed">
+
+      <div class="footer-left">
+
+        <h3>Promosale autos <span><img src="images/logo3.png"  style="height:40px; width:250px;margin-left:1em;"></span></h3>
+
+        <p class="footer-links">
+          <a href="index.html" class="link-1">Начало</a>
+          
+          <a href="car.html">Автомобили</a>
+        
+          <a href="chasti.html">Авточасти</a>
+        
+          <a href="about.html">За нас</a>
+          
+          <a href="contact.html">Контакти</a>
+          
+        </p>
+
+        <p class="footer-company-name">Promosale autos © 2023</p>
+      </div>
+
+      <div class="footer-center">
+
+        <div>
+          <i class="fa fa-map-marker"></i>
+          <p><span>ул. Георги Раковски № 107</span>София, България</p>
+        </div>
+
+        <div>
+          <i class="fa fa-phone"></i>
+          <p>0885 233 757</p>
+        </div>
+
+        <div>
+          <i class="fa fa-envelope"></i>
+          <p><a href="mailto:ndimitrov336@gmail.com">ndimitrov336@gmail.com</a></p>
+        </div>
+
+      </div>
+
+      <div class="footer-right">
+
+        <p class="footer-company-about">
+          <span>За нас</span>
+          Promosale autos е водеща компания в продажбата на луксозни автомобили и тунинг авточасти за тях.
+        </p>
+
+        <div class="footer-icons">
+
+          <a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>
+          <a href="https://www.twitter.com/"><i class="fa fa-twitter"></i></a>
+          <a href="https://www.linkedin.com/"><i class="fa fa-linkedin"></i></a>
+          <a href="https://www.instagram.com/"><i class="fa fa-instagram"></i></a>
+		  <a href="https://www.youtube.com/"><i class="fa fa-youtube"></i></a>
+
+        </div>
+
+      </div>
+
+    </footer>
+  </body>
+</html>
+	
+	
+	
+	
